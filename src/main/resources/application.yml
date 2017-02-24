@@ -1,0 +1,19 @@
+info:
+  component: 'Eventservice'
+
+spring:
+    application:
+        name: events
+
+endpoints:
+    restart:
+        enabled: true
+    shutdown:
+        enabled: true
+    health:
+        sensitive: false
+    info:
+      enabled: true
+
+server:
+    port: 8082
