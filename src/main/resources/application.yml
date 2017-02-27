@@ -15,5 +15,19 @@ endpoints:
     info:
       enabled: true
 
+---
+# For deployment without Docker containers
+spring:
+  profiles: default
+
 server:
     port: 8082
+
+
+---
+# For deployment in Docker containers
+spring:
+  profiles: docker
+
+server:
+    port: 80
