@@ -11,8 +11,6 @@ import java.util.List;
 public interface EventRepository extends CrudRepository<Event, String> {
     List<Event> findByLocationIdLike(String locationId);
 
-    List<Event> findByArtistIdLike(String artistId);
-
     List<Event> findByTicketIdLike(String ticketId);
 
     List<Event> findByEventNameLikeIgnoreCase(String eventName);

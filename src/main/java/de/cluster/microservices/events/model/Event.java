@@ -67,7 +67,7 @@ public class Event implements Serializable {
     public void setLocationId(String postalCode) {
         this.locationId = postalCode;
     }
-    
+
     public String getId() {
         return id;
     }
@@ -78,6 +78,6 @@ public class Event implements Serializable {
 
     @Override
     public String toString() {
-        return "Event[id=" + id + ", name=" + eventName + ", date=" + date + ", locationId=" + locationId + ", ticketId=+" + ticketId + ", artistId=" + artistId + "]";
+        return "Event[id=" + id + ", name=" + eventName + ", date=" + date + ", locationId=" + locationId + ", ticketId=+" + ticketId + "]";
     }
 }
