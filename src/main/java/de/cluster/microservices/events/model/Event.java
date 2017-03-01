@@ -19,8 +19,6 @@ public class Event implements Serializable {
 
     private String locationId;
 
-    private String artistId;
-
     private String ticketId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -69,15 +67,7 @@ public class Event implements Serializable {
     public void setLocationId(String postalCode) {
         this.locationId = postalCode;
     }
-
-    public String getArtistId() {
-        return artistId;
-    }
-
-    public void setArtistId(String artistId) {
-        this.artistId = artistId;
-    }
-
+    
     public String getId() {
         return id;
     }
