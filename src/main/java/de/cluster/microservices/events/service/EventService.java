@@ -15,8 +15,6 @@ public interface EventService {
 
     public List<Event> getEventyByLocationIdLike(String locationId);
 
-    public List<Event> getEventyByArtistIdLike(String artistId);
-
     public List<Event> getEventyByTicketIdLike(String ticketId);
 
     public void deleteEvent(String id);

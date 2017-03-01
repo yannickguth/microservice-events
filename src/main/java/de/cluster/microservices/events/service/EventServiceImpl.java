@@ -56,11 +56,6 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> getEventyByArtistIdLike(String artistId) {
-        return eventRepo.findByArtistIdLike(artistId);
-    }
-
-    @Override
     public List<Event> getEventyByTicketIdLike(String ticketId) {
         return eventRepo.findByTicketIdLike(ticketId);
     }
