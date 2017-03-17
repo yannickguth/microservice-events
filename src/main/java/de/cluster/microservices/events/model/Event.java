@@ -28,10 +28,10 @@ public class Event implements Serializable {
 
     }
 
-    public Event(String id, String eventName, String postalCode, Date date, String ticketId) {
+    public Event(String id, String eventName, String locationId, Date date, String ticketId) {
         this.setId(id);
         this.setEventName(eventName);
-        this.setLocationId(postalCode);
+        this.setLocationId(locationId);
         this.setDate(date);
         this.setTicketId(ticketId);
     }
@@ -64,8 +64,8 @@ public class Event implements Serializable {
         return locationId;
     }
 
-    public void setLocationId(String postalCode) {
-        this.locationId = postalCode;
+    public void setLocationId(String locationId) {
+        this.locationId = locationId;
     }
 
     public String getId() {

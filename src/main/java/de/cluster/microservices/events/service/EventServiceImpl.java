@@ -15,29 +15,18 @@ public class EventServiceImpl implements EventService {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventServiceImpl.class);
 
-
     @Autowired
     EventRepository eventRepo;
 
-    public EventServiceImpl() {
-
-    }
-
-    public EventServiceImpl(EventRepository repo) {
-        this.eventRepo = repo;
-    }
-
     @Override
     public void createData() {
-        LOG.warn("/***USE FOR TESTS ONLY***/");
-        LOG.info("creating events ");
-        LOG.warn("/***USE FOR TESTS ONLY***/");
+        LOG.info("Creating test data: events");
         try {
             if (getEvents().size() == 0) {
-                createEvent(new Event("1", "Adesso Weihnachtsfeier", "0", new Date(), "1"));
-                createEvent(new Event("2", "Militärparade", "7", new Date(), "2"));
-                createEvent(new Event("3", "HS Bochum Abschlussfeier", "5", new Date(), "3"));
-                createEvent(new Event("4", "Cocktail Tour", "9", new Date(), "4"));
+                createEvent(new Event("0", "Adesso Weihnachtsfeier", "0", new Date(), "0"));
+                createEvent(new Event("1", "Halloween", "1", new Date(), "1"));
+                createEvent(new Event("2", "HS Bochum Abschlussfeier", "2", new Date(), "2"));
+                createEvent(new Event("3", "Silvester Party", "3", new Date(), "3"));
             }
         } catch (Exception e) {
             LOG.error("Could not create Test Data");
