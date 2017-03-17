@@ -7,8 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -23,10 +24,10 @@ public class EventServiceImpl implements EventService {
         LOG.info("Creating test data: events");
         try {
             if (getEvents().size() == 0) {
-                createEvent(new Event("0", "Adesso Weihnachtsfeier", "0", new Date(), "0"));
-                createEvent(new Event("1", "Halloween", "1", new Date(), "1"));
-                createEvent(new Event("2", "HS Bochum Abschlussfeier", "2", new Date(), "2"));
-                createEvent(new Event("3", "Silvester Party", "3", new Date(), "3"));
+                createEvent(new Event("0", "Adesso Weihnachtsfeier", "0", new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN).parse("19.12.2017"), "0"));
+                createEvent(new Event("1", "Halloween", "1", new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN).parse("31.10.2017"), "1"));
+                createEvent(new Event("2", "HS Bochum Abschlussfeier", "2", new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN).parse("15.04.2017"), "2"));
+                createEvent(new Event("3", "Silvester Party", "3", new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN).parse("31.12.2017"), "3"));
             }
         } catch (Exception e) {
             LOG.error("Could not create Test Data");
