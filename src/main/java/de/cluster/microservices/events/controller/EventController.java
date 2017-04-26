@@ -32,7 +32,7 @@ public class EventController {
      */
     @RequestMapping(value = "/events", method = RequestMethod.GET)
     public ResponseEntity<List<Event>> getAllEvents() {
-        LOG.info("Return all events");
+        LOG.info("Fetching all events");
         return new ResponseEntity<>(eventService.getEvents(), HttpStatus.OK);
     }
 
@@ -43,7 +43,7 @@ public class EventController {
      */
     @RequestMapping(value = "/events", method = RequestMethod.POST)
     public ResponseEntity<String> createEvent(@RequestBody Event event) {
-        LOG.info("Create event: " + event);
+        LOG.info("Creating event[" + event + "]");
         String id = eventService.createEvent(event);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
@@ -55,7 +55,7 @@ public class EventController {
      */
     @RequestMapping(value = "/events", method = RequestMethod.PUT)
     public ResponseEntity<String> updateEvent(@RequestBody Event event) {
-        LOG.info("Update event: " + event);
+        LOG.info("Updating event[" + event + "]");
         eventService.updateEvent(event);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
@@ -67,7 +67,7 @@ public class EventController {
      */
     @RequestMapping(value = "/events/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteEvent(@PathVariable String id) {
-        LOG.info("Delete event with id: " + id);
+        LOG.info("Delete event[id=" + id + "]");
         eventService.deleteEvent(id);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
@@ -78,9 +78,10 @@ public class EventController {
     @RequestMapping(value = "/events/{id}", method = RequestMethod.GET)
     public ResponseEntity<Event> getEventById(
             @PathVariable String id) {
-        LOG.info("Get event by id: " + id);
+        LOG.info("Fetching event[" + id + "]");
         Event e = eventService.getEvent(id);
         if (e == null) {
+            LOG.warn("Event not found[" + id + "]");
             return new ResponseEntity<>((Event) null, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(e, HttpStatus.OK);
@@ -89,7 +90,7 @@ public class EventController {
     @RequestMapping(value = "/events/name/{name}", method = RequestMethod.GET)
     public ResponseEntity<List<Event>> searchForEvents(
             @PathVariable String name) {
-        LOG.info("Search for events");
+        LOG.info("Search for events by name");
         List<Event> events = eventService.getEventyByNameLike(name);
         return new ResponseEntity<>(events, HttpStatus.OK);
     }
